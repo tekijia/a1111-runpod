@@ -25,3 +25,5 @@ jobs:
           context: .
           push: true
           tags: tekijia/a1111-runpod:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
