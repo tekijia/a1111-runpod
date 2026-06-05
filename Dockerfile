@@ -22,6 +22,11 @@ RUN python3.11 --version
 RUN python3.11 -m pip install --upgrade pip wheel && \
     python3.11 -m pip install "setuptools<81"
 
+ENV PIP_NO_BUILD_ISOLATION=1
+
+RUN python3.11 -m pip install --no-build-isolation \
+    https://github.com/openai/CLIP/archive/d50d76daa670286dd6cacf3bcd80b5e4823fc8e1.zip
+
 RUN python3.11 -m pip install \
     torch==2.9.1 \
     torchvision \
