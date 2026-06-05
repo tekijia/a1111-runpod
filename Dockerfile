@@ -35,9 +35,9 @@ RUN python3.11 -m pip install \
 
 RUN python3.11 -c "import torch; print('Torch:', torch.__version__); print('CUDA:', torch.version.cuda)"
 
-RUN python3.11 -m pip install xformers
+RUN python3.11 -m pip install xformers==0.0.33 --no-deps
 
-RUN python3.11 -c "import xformers; print('xformers installed')"
+RUN python3.11 -c "import torch, xformers; print('Torch:', torch.__version__); print('xformers:', xformers.__version__)"
 
 RUN python3.11 -m pip install jupyterlab
 
