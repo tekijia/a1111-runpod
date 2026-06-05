@@ -35,9 +35,17 @@ RUN python3.11 -m pip install \
 
 RUN python3.11 -c "import torch; print('Torch:', torch.__version__); print('CUDA:', torch.version.cuda)"
 
-RUN python3.11 -m pip install xformers==0.0.33 --no-deps
+RUN apt-get update && apt-get install -y ninja-build cmake && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN python3.11 -c "import torch, xformers; print('Torch:', torch.__version__); print('xformers:', xformers.__version__)"
+ENV TORCH_CUDA_ARCH_LIST=12.0
+ENV FORCE_CUDA=1
+ENV MAX_JOBS=8
+
+RUN python3.11 -m pip install --no-build-isolation --no-deps \
+    git+https://github.com/facebookresearch/xformers.git@v0.0.33
+
+RUN python3.11 -c "import torch, xformers; print('Torch:', torch.__version__); print('CUDA:', torch.version.cuda); print('xformers:', xformers.__version__)"
 
 RUN python3.11 -m pip install jupyterlab
 
