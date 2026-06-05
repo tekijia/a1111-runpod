@@ -30,6 +30,13 @@ fi
 
 cd /workspace/stable-diffusion-webui
 
+mkdir -p /workspace/stable-diffusion-webui/repositories
+
+if [ ! -d "/workspace/stable-diffusion-webui/repositories/stable-diffusion-stability-ai" ]; then
+  git clone https://github.com/CompVis/stable-diffusion.git \
+    /workspace/stable-diffusion-webui/repositories/stable-diffusion-stability-ai
+fi
+
 python3.11 launch.py \
   --listen \
   --port 7860 \
