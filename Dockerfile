@@ -15,4 +15,14 @@ RUN apt-get update && apt-get install -y \
 
 RUN python3.11 --version
 
+RUN python3.11 -m pip install --upgrade pip setuptools wheel
+
+RUN python3.11 -m pip install \
+    torch==2.9.1 \
+    torchvision \
+    torchaudio \
+    --index-url https://download.pytorch.org/whl/cu128
+
+RUN python3.11 -c "import torch; print('Torch:', torch.__version__); print('CUDA:', torch.version.cuda)"
+
 WORKDIR /workspace
