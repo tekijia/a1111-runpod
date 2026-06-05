@@ -37,18 +37,21 @@ if [ ! -d "/workspace/stable-diffusion-webui/repositories/stable-diffusion-stabi
     /workspace/stable-diffusion-webui/repositories/stable-diffusion-stability-ai
 fi
 
-python3.11 launch.py \
-  --listen \
-  --port 7860 \
-  --api \
-  --enable-insecure-extension-access \
-  --skip-torch-cuda-test \
-  --skip-python-version-check \
-  --opt-sdp-attention \
-  --no-half-vae \
-  --no-download-sd-model \
-  --models-dir /workspace/models \
-  --ckpt-dir /workspace/models/Stable-diffusion \
-  --vae-dir /workspace/models/VAE \
-  --embeddings-dir /workspace/embeddings \
-  --gradio-allowed-path /workspace
+# python3.11 launch.py \
+#   --listen \
+#   --port 7860 \
+#   --api \
+#   --enable-insecure-extension-access \
+#   --skip-torch-cuda-test \
+#   --skip-python-version-check \
+#   --opt-sdp-attention \
+#   --no-half-vae \
+#   --no-download-sd-model \
+#   --models-dir /workspace/models \
+#   --ckpt-dir /workspace/models/Stable-diffusion \
+#   --vae-dir /workspace/models/VAE \
+#   --embeddings-dir /workspace/embeddings \
+#   --gradio-allowed-path /workspace
+
+echo "Debug mode"
+tail -f /dev/null
