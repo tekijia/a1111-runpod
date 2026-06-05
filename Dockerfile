@@ -46,3 +46,10 @@ WORKDIR /workspace/stable-diffusion-webui
 RUN git checkout v1.10.1
 
 WORKDIR /workspace
+
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+EXPOSE 7860 8888 8080
+
+CMD ["/start.sh"]
