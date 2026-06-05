@@ -25,4 +25,8 @@ RUN python3.11 -m pip install \
 
 RUN python3.11 -c "import torch; print('Torch:', torch.__version__); print('CUDA:', torch.version.cuda)"
 
+RUN python3.11 -m pip install xformers
+
+RUN python3.11 -c "import xformers; print('xformers installed')"
+
 WORKDIR /workspace
