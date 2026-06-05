@@ -39,4 +39,10 @@ RUN curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh |
 
 RUN filebrowser version
 
+RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git /workspace/stable-diffusion-webui
+
+WORKDIR /workspace/stable-diffusion-webui
+
+RUN git checkout v1.10.1
+
 WORKDIR /workspace
