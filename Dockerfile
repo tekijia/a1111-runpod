@@ -33,4 +33,10 @@ RUN python3.11 -m pip install xformers
 
 RUN python3.11 -c "import xformers; print('xformers installed')"
 
+RUN python3.11 -m pip install jupyterlab
+
+RUN curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
+
+RUN filebrowser version
+
 WORKDIR /workspace
