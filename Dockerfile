@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN python3.11 --version
 
-RUN python3.11 -m pip install --upgrade pip setuptools wheel
+RUN python3.11 -m pip install --upgrade pip wheel && \
+    python3.11 -m pip install "setuptools<81"
 
 RUN python3.11 -m pip install \
     torch==2.9.1 \
